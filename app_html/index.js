@@ -14,9 +14,13 @@ app.get('/', function(req, res) {
 });
 
 app.post('/dados', function(req, res) {
-    //renderizar as informações do formulário
-    const {nome, endereco, telefone, data} = req.body;
-    res.render('dados.html', { nome, endereco, telefone, data });
+    let agendamento = {
+        nome : req.body.nome,
+        endereco : req.body.endereco,
+        telefone : req.body.telefone,
+        data : req.body.data
+    };
+   res.render('dados.html', { agendamento });
 });
 
 const PORT = 8080;
